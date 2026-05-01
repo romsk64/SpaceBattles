@@ -18,6 +18,7 @@ C_BLUE = (0, 0, 100)
 C_BLACK = (0, 0, 0)
 C_WHITE = (255, 255, 255)
 C_LIGHT_GRAY = (211, 211, 211)
+C_DARK_GRAY = (100, 100, 100)
 C_GRAY = (128, 128, 128)
 
 pygame.init()
