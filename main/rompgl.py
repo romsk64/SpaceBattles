@@ -79,6 +79,23 @@ class TextArea(Area):
         self.textOtsX = textOtsX
         self.textOtsY = textOtsY
     def drawText(self):
+        txt = pygame.font.Font(self.font, self.fsize).render(self.text, True, self.colText)
+        self.window.blit(txt, (self.x + self.textOtsX, self.y + self.textOtsY))
+    def setText(self, text):
+        self.text = text
+        self.drawText()
+
+class SysTextArea(Area):
+    def __init__(self, text, font, fsize, colText, textOts, textOtsX = 0, textOtsY = 0): 
+        Area().__init__()        # textOts:
+        self.text = text         # "0" - слева в середине по Y
+        self.font = font         # "1" - справа в середине по Y
+        self.fsize = fsize       # "2" - в середине по X и по Y
+        self.colText = colText   # "3" - только textOtsX и textOtsY
+        self.textOts = textOts
+        self.textOtsX = textOtsX
+        self.textOtsY = textOtsY
+    def drawText(self):
         txt = pygame.font.SysFont(self.font, self.fsize).render(self.text, True, self.colText)
         self.window.blit(txt, (self.x + self.textOtsX, self.y + self.textOtsY))
     def setText(self, text):
@@ -95,11 +112,27 @@ class Text():
         self.textY = textY
         self.win = win # окно типа виндоу
     def drawText(self):
+        txt = pygame.font.Font(self.font, self.fsize).render(self.text, True, self.colText)
+        self.win.blit(txt, (self.textX, self.textY))
+    def setText(self, text):
+        self.text = text
+        self.drawText()
+
+class SysText():
+    def __init__(self, text, font, fsize, colText, textX, textY, win):
+        self.text = text
+        self.font = font
+        self.fsize = fsize
+        self.colText = colText
+        self.textX = textX
+        self.textY = textY
+        self.win = win # окно типа виндоу
+    def drawText(self):
         txt = pygame.font.SysFont(self.font, self.fsize).render(self.text, True, self.colText)
         self.win.blit(txt, (self.textX, self.textY))
     def setText(self, text):
         self.text = text
-        self.drText()
+        self.drawText()
 
 class TexturedArea():
     def __init__(self, x, y, wid, hid):
