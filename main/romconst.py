@@ -1,0 +1,14 @@
+C_RED = (255, 0, 0)
+C_GREEN = (0, 255, 51)
+C_YELLOW = (255, 255, 0)
+C_BLUE = (0, 0, 100)
+C_BLACK = (0, 0, 0)
+C_WHITE = (255, 255, 255)
+C_LIGHT_GRAY = (211, 211, 211)
+C_DARK_GRAY = (100, 100, 100)
+C_GRAY = (128, 128, 128)
+
+EN_EN = 0
+RU_RU = 1
+US_EN = 2
+RU_KY = 3 # калмыцкий язык

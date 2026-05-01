@@ -7,19 +7,13 @@ import time
 import logging
 from datetime import date
 from random import randint
+from romconst import *
 
 # wid - ширина
 # hid - длина
 
-C_RED = (255, 0, 0)
-C_GREEN = (0, 255, 51)
-C_YELLOW = (255, 255, 0)
-C_BLUE = (0, 0, 100)
-C_BLACK = (0, 0, 0)
-C_WHITE = (255, 255, 255)
-C_LIGHT_GRAY = (211, 211, 211)
-C_DARK_GRAY = (100, 100, 100)
-C_GRAY = (128, 128, 128)
+AREA = 1
+CONTOUR = 2
 
 pygame.init()
 
@@ -87,6 +81,9 @@ class TextArea(Area):
     def drawText(self):
         txt = pygame.font.SysFont(self.font, self.fsize).render(self.text, True, self.colText)
         self.window.blit(txt, (self.x + self.textOtsX, self.y + self.textOtsY))
+    def setText(self, text):
+        self.text = text
+        self.drawText()
 
 class Text():
     def __init__(self, text, font, fsize, colText, textX, textY, win):
@@ -97,9 +94,12 @@ class Text():
         self.textX = textX
         self.textY = textY
         self.win = win # окно типа виндоу
-    def drText(self):
+    def drawText(self):
         txt = pygame.font.SysFont(self.font, self.fsize).render(self.text, True, self.colText)
         self.win.blit(txt, (self.textX, self.textY))
+    def setText(self, text):
+        self.text = text
+        self.drText()
 
 class TexturedArea():
     def __init__(self, x, y, wid, hid):
