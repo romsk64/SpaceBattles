@@ -15,22 +15,12 @@ class Text():
     def setText(self, text):
         self.text = text
         self.drawText()
-
-class SysText():
-    def __init__(self, text, font, fsize, colText, textX, textY, win):
-        self.text = text
-        self.font = font
-        self.fsize = fsize
-        self.colText = colText
-        self.textX = textX
-        self.textY = textY
-        self.win = win # окно типа виндоу
-    def drawText(self):
+    def drawSysText(self):
         txt = pygame.font.SysFont(self.font, self.fsize).render(self.text, True, self.colText)
         self.win.blit(txt, (self.textX, self.textY))
-    def setText(self, text):
+    def setSysText(self, text):
         self.text = text
-        self.drawText()
+        self.drawSysText()
 
 class SquareArea():
     def __init__(self, bg, x, y, wid, hid, col):
@@ -53,15 +43,10 @@ class Button(SquareArea, Text):
         self.drawArea()
         if textTrue:
             self.drawText()
-
-class ButtonSysText(SquareArea, SysText):
-    def __init__(self, bg, x, y, wid, hid, col, text, font, fsize, colText, textX, textY):
-        SquareArea.__init__(self, bg, x, y, wid, hid, col)
-        SysText.__init__(self, text, font, fsize, colText, textX, textY, bg)
-    def drawButton(self, textTrue):
+    def drawSysTextButton(self, textTrue):
         self.drawArea()
         if textTrue:
-            self.drawText()
+            self.drawSysText()
 
 class CircleArea():
     def __init__(self, bg):
