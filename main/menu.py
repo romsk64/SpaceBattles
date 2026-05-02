@@ -2,7 +2,8 @@ import json
 from random import randint
 import pygame
 from pygame._sdl2 import Window
-import rompgl
+# import rompgl
+import gl
 from romconst import *
 
 # json options
@@ -25,9 +26,12 @@ for i in range(set_graphic_starcount):
     starList[0].append(None)
     starList[1].append(None)
 
-titleText = rompgl.Text("Space Battles", "resourses/fonts/spaceagecyrillic_regular.ttf", 50, C_WHITE, 25, 25, mw)
-# chSingleplayer = rompgl.Button(mw)
-# chMultiplayer = rompgl.Button(mw)
+titleText = gl.Text("Space Battles", "resourses/fonts/spaceagecyrillic_regular.ttf", 50, C_WHITE, 25, 25, mw)
+versionText = gl.Text(f"Version: {VERSION_STR}", "resourses/fonts/spaceagecyrillic_regular.ttf", 24, C_WHITE, 25, 980, mw)
+btnSingleplayer = gl.Button(mw, 25, 250, 350, 30, C_DARK_PURPLE, "Играть с ботами", "resourses/fonts/spaceagecyrillic_regular.ttf", 24, C_WHITE, 30, 250)
+btnMultiplayer = gl.Button(mw, 25, 300, 350, 30, C_DARK_PURPLE, "Играть на сервере", "resourses/fonts/spaceagecyrillic_regular.ttf", 24, C_WHITE, 30, 300)
+btnSettings = gl.Button(mw, 25, 400, 350, 30, C_DARK_PURPLE, "Настройки", "resourses/fonts/spaceagecyrillic_regular.ttf", 24, C_WHITE, 30, 400)
+btnExit = gl.Button(mw, 25, 450, 350, 30, C_DARK_PURPLE, "Выйти", "resourses/fonts/spaceagecyrillic_regular.ttf", 24, C_WHITE, 30, 450)
 
 def game_drawbg(bg):
     # пока генерация фона, потом сделаю нормальную картинку или нормальный шум по которому будет фон
@@ -57,7 +61,6 @@ def bg_move(bg):
 
 
 game_drawbg(mw)
-titleText.drawText()
 
 while mainCycle_:
     for event in pygame.event.get():
@@ -68,11 +71,15 @@ while mainCycle_:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_KP2:
                 game_drawbg(mw)
-                titleText.drawText()
     if exit_:
         break
 
     bg_move(mw)
     titleText.drawText()
+    versionText.drawText()
+    btnSingleplayer.drawButton(True)
+    btnMultiplayer.drawButton(True)
+    btnSettings.drawButton(True)
+    btnExit.drawButton(True)
     
     pygame.display.update()
