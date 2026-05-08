@@ -1,4 +1,5 @@
 import json
+import subprocess
 from random import randint
 import pygame
 from pygame._sdl2 import Window
@@ -57,8 +58,6 @@ def bg_move(bg):
 
         if starList[1][i - 1] <= -1:
             starList[1][i - 1] += json_resolution_height
-        
-
 
 game_drawbg(mw)
 
@@ -71,6 +70,17 @@ while mainCycle_:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_KP2:
                 game_drawbg(mw)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                x, y = event.pos
+                if btnSingleplayer.clicking(x, y):
+                    pass
+                elif btnMultiplayer.clicking(x, y):
+                    pass
+                elif btnSettings.clicking(x, y):
+                    subprocess.run(["python", "settings.py"])
+                elif btnExit.clicking(x, y):
+                    exit(0)
     if exit_:
         break
 

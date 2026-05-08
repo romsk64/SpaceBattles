@@ -47,6 +47,8 @@ class Button(SquareArea, Text):
         self.drawArea()
         if textTrue:
             self.drawSysText()
+    def clicking(self, x, y):
+        return self.rect.collidepoint(x, y)
 
 class CircleArea():
     def __init__(self, bg):
