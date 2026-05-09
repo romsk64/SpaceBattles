@@ -3,24 +3,24 @@ import pygame
 from pygame._sdl2 import Window
 # from PyQt5.QtCore import Qt
 # from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QPushButton, QVBoxLayout
-from main.modules.romconst import *
+from modules.romconst import *
 
 opt_language = RU_RU
 exit_to_menu_ = False
 mainCycle_ = True
 
-json_resolution_width = 1920
-json_resolution_height = 1017
-opt_resolution = (json_resolution_width, json_resolution_height)
-opt_fullscreen = False
-opt_graphic_starcount = 250
+# json_resolution_width = 1920
+# json_resolution_height = 1017
+# opt_resolution = (json_resolution_width, json_resolution_height)
+# opt_fullscreen = False
+# opt_graphic_starcount = 250
 
 pygame.init()
 
-mw = pygame.display.set_mode(opt_resolution, pygame.SCALED | pygame.RESIZABLE)
-pygame.display.set_caption("Options")
-Window.from_display_module().maximize()
-mw.fill(C_DARK_GRAY)
+def optionsWindow():
+    pygame.display.set_caption("Options")
+    Window.from_display_module().maximize()
+    mw.fill(C_DARK_GRAY)
 
 # settings = QApplication([])
 # mw = QWidget()
@@ -40,7 +40,7 @@ mw.fill(C_DARK_GRAY)
 def saving():
     pass
 
-while mainCycle_:
+def settings():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             exit(0)

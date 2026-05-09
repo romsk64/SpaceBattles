@@ -1,7 +1,7 @@
 import subprocess
 import pygame
-import main.modules.menu as menu
-import main.modules.options as options
+import modules.menu as menu
+import modules.options as options
 
 pygame.init()
 
