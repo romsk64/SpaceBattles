@@ -1,0 +1,13 @@
+{
+    "name": "Space Battles",
+    "nameOptions": "Настройки",
+
+    "btnSingleplayer": "Играть с ботами",
+    "btnMultiplayer": "Играть на сервере",
+    "btnOptions": "Настройки",
+    "btnExit": "Выйти",
+
+    "btnExitMenu": "Выйти в главное меню",
+
+    "btnOptLang": "Язык"
+}

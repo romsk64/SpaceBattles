@@ -3,9 +3,9 @@ import pygame
 from pygame._sdl2 import Window
 # from PyQt5.QtCore import Qt
 # from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QPushButton, QVBoxLayout
-from modules.romconst import *
+import modules.romconst as romconst
 
-opt_language = RU_RU
+# opt_language = romconst.RU_RU # русский язык
 exit_to_menu_ = False
 mainCycle_ = True
 
@@ -17,10 +17,10 @@ mainCycle_ = True
 
 pygame.init()
 
-def optionsWindow():
+def optionsWindowInit():
     pygame.display.set_caption("Options")
     Window.from_display_module().maximize()
-    mw.fill(C_DARK_GRAY)
+    romconst.mw.fill(romconst.C_DARK_GRAY)
 
 # settings = QApplication([])
 # mw = QWidget()

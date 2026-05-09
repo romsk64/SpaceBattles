@@ -2,6 +2,7 @@ import subprocess
 import pygame
 import modules.menu as menu
 import modules.options as options
+# import modules.lang as lang
 
 pygame.init()
 
