@@ -7,7 +7,7 @@ import modules.romconst as romconst
 
 # opt_language = romconst.RU_RU # русский язык
 exit_to_menu_ = False
-mainCycle_ = True
+optionsCycle_ = True
 
 # json_resolution_width = 1920
 # json_resolution_height = 1017

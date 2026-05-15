@@ -1,3 +1,9 @@
 {
-    "language": 1
+    "language": 1,
+
+    "resolution_wid": 1920,
+    "resolution_hid": 1017,
+    "fullscreen": false,
+
+    "graphic_starcount": 250
 }

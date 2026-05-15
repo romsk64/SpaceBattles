@@ -4,20 +4,11 @@ from random import randint
 import pygame
 from pygame._sdl2 import Window
 import sys
-# import rompgl
 from modules import gl, romconst
-
-# json options
-# json_resolution_width = 1920
-# json_resolution_height = 1017
-# opt_resolution = (json_resolution_width, json_resolution_height)
-# opt_fullscreen = False
-# opt_graphic_starcount = 250
 
 pygame.init()
 
 def menuWindowInit():
-    romconst.mw = pygame.display.set_mode(romconst.opt_resolution, pygame.SCALED | pygame.RESIZABLE)
     pygame.display.set_caption(f"{romconst.langName}")
     Window.from_display_module().maximize()
     romconst.mw.fill(romconst.C_WHITE)
@@ -54,6 +45,8 @@ game_drawbg(romconst.mw)
 
 def cycle():
     for event in pygame.event.get():
+        global menuCycle_
+        
         if event.type == pygame.QUIT:
             exit(0)
         if event.type == pygame.KEYDOWN:
@@ -67,7 +60,9 @@ def cycle():
                 elif romconst.btnMultiplayer.clicking(x, y):
                     pass
                 elif romconst.btnOptions.clicking(x, y):
-                    pass
+                    romconst.toOptions = True
+                    romconst.toMenu = False
+                    menuCycle_ = False
                 elif romconst.btnExit.clicking(x, y):
                     exit(0)
 

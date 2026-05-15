@@ -23,12 +23,13 @@ VERSION = 0.1
 VERSION_STR = str(VERSION)
 
 # json settings
-json_resolution_width = 1920
-json_resolution_height = 1017
+json_options_dict = json_load.load_options()
+json_resolution_width = json_options_dict['resolution_wid']
+json_resolution_height = json_options_dict['resolution_hid']
 opt_resolution = (json_resolution_width, json_resolution_height)
-opt_fullscreen = False
-opt_graphic_starcount = 250
-opt_language = RU_RU
+opt_fullscreen = json_options_dict['fullscreen']
+opt_graphic_starcount = json_options_dict['graphic_starcount']
+opt_language = json_options_dict['language']
 
 # language
 lang_dict = json_load.load_language() # словарь со всеми словами
@@ -40,6 +41,11 @@ langBtnOptions = lang_dict['btnOptions']
 langBtnExit = lang_dict['btnExit']
 langBtnExitMenu = lang_dict['btnExitMenu']
 langBtnOptLang = lang_dict['btnOptLang']
+
+# to menu/options/game
+toMenu = True
+toOptions = False
+toGame = False
 
 mw = pygame.display.set_mode(opt_resolution, pygame.SCALED | pygame.RESIZABLE)
 
@@ -57,3 +63,6 @@ btnExit = gl.Button(mw, 25, 450, 350, 30, C_DARK_PURPLE, f"{langBtnExit}", "reso
 
 # menu on escape
 btnExitMenu = None
+
+# options
+# ...
