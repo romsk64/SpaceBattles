@@ -4,10 +4,9 @@ from pygame._sdl2 import Window
 # from PyQt5.QtCore import Qt
 # from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QPushButton, QVBoxLayout
 import modules.romconst as romconst
+import modules.menu as menu
 
-# opt_language = romconst.RU_RU # русский язык
-exit_to_menu_ = False
-optionsCycle_ = True
+# optionsCycle_ = True
 
 # json_resolution_width = 1920
 # json_resolution_height = 1017
@@ -18,9 +17,12 @@ optionsCycle_ = True
 pygame.init()
 
 def optionsWindowInit():
+    global optionsCycle_
+
+    optionsCycle_ = True
     pygame.display.set_caption("Options")
-    Window.from_display_module().maximize()
-    romconst.mw.fill(romconst.C_DARK_GRAY)
+    # Window.from_display_module().maximize()
+    # romconst.mw.fill(romconst.C_DARK_GRAY)
 
 # settings = QApplication([])
 # mw = QWidget()
@@ -40,14 +42,18 @@ def optionsWindowInit():
 def saving():
     pass
 
-def settings():
+def options():
     for event in pygame.event.get():
+        global optionsCycle_
+
         if event.type == pygame.QUIT:
             exit(0)
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
-                exit_to_menu_ = True
-    if exit_to_menu_:
-        pass
+                romconst.toMenu = True
+                romconst.toOptions = False
+                optionsCycle_ = False
+    
+    menu.bg_move(romconst.mw)
 
     pygame.display.update()

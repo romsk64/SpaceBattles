@@ -9,11 +9,14 @@ from modules import gl, romconst
 pygame.init()
 
 def menuWindowInit():
-    pygame.display.set_caption(f"{romconst.langName}")
-    Window.from_display_module().maximize()
-    romconst.mw.fill(romconst.C_WHITE)
+    global menuCycle_
 
-menuCycle_ = True
+    menuCycle_ = True
+    pygame.display.set_caption(f"{romconst.langName}")
+    # Window.from_display_module().maximize()
+    # romconst.mw.fill(romconst.C_WHITE)
+
+# menuCycle_ = True
 starList = [[], []]
 for i in range(romconst.opt_graphic_starcount):
     starList[0].append(None)
