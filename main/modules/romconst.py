@@ -35,12 +35,17 @@ opt_language = json_options_dict['language']
 lang_dict = json_load.load_language() # словарь со всеми словами
 langName = lang_dict['name']
 langNameOptions = lang_dict['nameOptions']
+langNameSingleplayer = lang_dict['nameSingleplayer']
+langNameMultiplayer = lang_dict['nameMultiplayer']
 langBtnSingleplayer = lang_dict['btnSingleplayer']
 langBtnMultiplayer = lang_dict['btnMultiplayer']
 langBtnOptions = lang_dict['btnOptions']
 langBtnExit = lang_dict['btnExit']
 langBtnExitMenu = lang_dict['btnExitMenu']
 langBtnOptLang = lang_dict['btnOptLang']
+
+# new options
+new_options_dict = dict()
 
 # to menu/options/game
 toMenu = True

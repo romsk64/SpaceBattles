@@ -13,8 +13,6 @@ def menuWindowInit():
 
     menuCycle_ = True
     pygame.display.set_caption(f"{romconst.langName}")
-    # Window.from_display_module().maximize()
-    # romconst.mw.fill(romconst.C_WHITE)
 
 # menuCycle_ = True
 starList = [[], []]
@@ -59,9 +57,11 @@ def cycle():
             if event.button == 1:
                 x, y = event.pos
                 if romconst.btnSingleplayer.clicking(x, y):
-                    pass
+                    romconst.toGame = True
+                    romconst.toMenu = False
+                    menuCycle_ = False
                 elif romconst.btnMultiplayer.clicking(x, y):
-                    pass
+                    print("In develompment!")
                 elif romconst.btnOptions.clicking(x, y):
                     romconst.toOptions = True
                     romconst.toMenu = False

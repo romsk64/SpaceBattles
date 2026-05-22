@@ -5,5 +5,10 @@
     "resolution_hid": 1017,
     "fullscreen": false,
 
-    "graphic_starcount": 250
+    "graphic_starcount": 250,
+
+    "bind_forward": ["K_w", "K_UP"],
+    "bind_back": ["K_s", "K_DOWN"],
+    "bind_left": ["K_a", "K_LEFT"],
+    "bind_right": ["K_d", "L_RIGHT"]
 }

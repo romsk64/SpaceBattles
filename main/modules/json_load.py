@@ -27,3 +27,10 @@ def load_options():
         print("No file \"user/options.json\" in current directory!")
         exit(1)
     return options_dict
+
+def dump_options():
+    try:
+        json.dump(romconst.new_options_dict, "user/options.json")
+    except FileNotFoundError:
+        print("No file \"user/options.json\" in current directory!")
+        exit(1)

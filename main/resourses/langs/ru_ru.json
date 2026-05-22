@@ -1,6 +1,8 @@
 {
     "name": "Space Battles",
     "nameOptions": "Настройки",
+    "nameSingleplayer": "Одиночная игра",
+    "nameMultiplayer": "Многопользовательская игра",
 
     "btnSingleplayer": "Играть с ботами",
     "btnMultiplayer": "Играть на сервере",

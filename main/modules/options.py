@@ -15,6 +15,7 @@ import modules.menu as menu
 # opt_graphic_starcount = 250
 
 pygame.init()
+new_options_dict = dict()
 
 def optionsWindowInit():
     global optionsCycle_
@@ -40,7 +41,9 @@ def optionsWindowInit():
 # settings.exec_()
 
 def saving():
-    pass
+    global new_options_dict
+
+    new_options_dict = romconst.json_options_dict
 
 def options():
     for event in pygame.event.get():
@@ -53,6 +56,8 @@ def options():
                 romconst.toMenu = True
                 romconst.toOptions = False
                 optionsCycle_ = False
+            if event.key == pygame.K_KP_PLUS:
+                romconst.new_options_dict = new_options_dict
     
     menu.bg_move(romconst.mw)
 
