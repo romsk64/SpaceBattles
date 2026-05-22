@@ -18,9 +18,11 @@ if __name__ == "__main__":
         elif romconst.toOptions:
             options.optionsWindowInit()
         elif romconst.toGame:
-
+            game.gameWindowInit()
         
         if menu.menuCycle_:
             menu.cycle()
         elif options.optionsCycle_:
             options.options()
+        elif game.gameCycle_:
+            game.game()
